@@ -534,6 +534,28 @@
 #define CSR_PMPADDR62			0x3ee
 #define CSR_PMPADDR63			0x3ef
 
+/* Virtual Memory Protection */
+#define CSR_VMPCFG0			    0xf20
+#define CSR_VMPCFG1			    0xf21
+#define CSR_VMPCFG2			    0xf22
+#define CSR_VMPCFG3			    0xf23
+#define CSR_VMPADDR0			0xf30
+#define CSR_VMPADDR1			0xf31
+#define CSR_VMPADDR2			0xf32
+#define CSR_VMPADDR3			0xf33
+#define CSR_VMPADDR4			0xf34
+#define CSR_VMPADDR5			0xf35
+#define CSR_VMPADDR6			0xf36
+#define CSR_VMPADDR7			0xf37
+#define CSR_VMPADDR8			0xf38
+#define CSR_VMPADDR9			0xf39
+#define CSR_VMPADDR10			0xf3a
+#define CSR_VMPADDR11			0xf3b
+#define CSR_VMPADDR12			0xf3c
+#define CSR_VMPADDR13			0xf3d
+#define CSR_VMPADDR14			0xf3e
+#define CSR_VMPADDR15			0xf3f
+
 /* Machine Counters/Timers */
 #define CSR_MCYCLE			0xb00
 #define CSR_MINSTRET			0xb02
