@@ -303,8 +303,8 @@ void vmp_print_regions()
 
 int vmp_fit_region(unsigned long start, unsigned long end)
 {
-    vmp_address_reg_t *addr_regs = VMP_ADDR_BASE_ADDRESS;
-    vmp_config_reg_t   *cfg_regs = VMP_CFG_BASE_ADDRESS;
+    vmp_address_reg_t *addr_regs = (vmp_address_reg_t*) VMP_ADDR_BASE_ADDRESS;
+    vmp_config_reg_t   *cfg_regs = (vmp_config_reg_t*)  VMP_CFG_BASE_ADDRESS;
     struct vmp_config_reg *cfg_reg = 0;
     unsigned long lower=0;
     unsigned long upper=0;
@@ -548,16 +548,16 @@ static int sbi_ecall_vmp_handler(unsigned long extid, unsigned long funcid,
     int ret = 0;
     switch (funcid) {
         case SBI_VMP_CREATE_REGION:
-            ret = sbi_ecall_vmp_create_region(regs->a0, regs->a1);
+            ret = sbi_ecall_vmp_create_region(regs->a0, regs->a1, regs->a2);
             break;
         case SBI_VMP_MODIFY_REGION:
-            ret = sbi_ecall_vmp_set_region(regs->a0, (0xFF & regs->a1));
+            ret = sbi_ecall_vmp_set_region(regs->a0, regs->a1, (0xFF & regs->a2));
             break;
         case SBI_VMP_SAVE_CLEAR_CONTEXT:
-            ret = sbi_ecall_vmp_save_clear_context(regs->a0, regs->a1, regs->a2);
+            ret = sbi_ecall_vmp_save_clear_context(regs->a0, regs->a1);
             break;
        case SBI_VMP_RESTORE_CONTEXT:
-            ret = sbi_ecall_vmp_restore_context(regs->a0, regs->a1, (0xFF & regs->a2));
+            ret = sbi_ecall_vmp_restore_context(regs->a0, regs->a1);
             break;
        case SBI_VMP_DESTROY_REGION:
             ret = sbi_ecall_vmp_destroy_region(regs->a0, regs->a1);
