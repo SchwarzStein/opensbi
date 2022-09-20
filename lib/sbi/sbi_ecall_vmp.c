@@ -233,7 +233,7 @@ void vmp_reset_struct_region(struct vmp_region *region)
 struct vmp_region* vmp_split_region(struct vmp_region *base, unsigned long start, unsigned long end, int count)
 {
     /*check how many shifts may be needed*/
-    struct vmp_region *target;
+    struct vmp_region *target = 0;
     struct vmp_region *t=base;
     struct vmp_region original;
     int free_positions = 0;
